@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { CryptoService } from '../../../service/crypto.service';
 
 @Component({
   selector: 'app-busqueda-libre',
@@ -8,14 +9,14 @@ import { Component, OnInit } from '@angular/core';
 export class BusquedaLibreComponent implements OnInit {
 
   cryptoName: string = '';
+  
 
-  constructor() { }
+  constructor(private cryptoService: CryptoService) { }
 
-  ngOnInit(): void {
-  }
+  ngOnInit(): void {}
 
   buscarCrypto(){
-
+    
   }
 
   mostrarCryptos(){
