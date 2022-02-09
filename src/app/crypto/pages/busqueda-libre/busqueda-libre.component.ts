@@ -7,9 +7,18 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusquedaLibreComponent implements OnInit {
 
+  cryptoName: string = '';
+
   constructor() { }
 
   ngOnInit(): void {
   }
 
+  buscarCrypto(){
+
+  }
+
+  mostrarCryptos(){
+
+  }
 }
