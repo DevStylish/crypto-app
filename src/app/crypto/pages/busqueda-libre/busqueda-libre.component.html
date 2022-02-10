@@ -1,3 +1,7 @@
 <h2>Búsqueda libre</h2>
-<app-buscador name="buscador" [(ngModel)]="cryptoName" (keyup.enter)="mostrarCryptos()"></app-buscador>
+<app-buscador [(ngModel)]="cryptoName" ngDefaultControl (keyup.enter)="buscarCrypto()"></app-buscador>
 <hr>
+<div *ngIf="cryptoMonedas == null; else showCrypto"></div>
+<ng-template #showCrypto>
+    <app-tabla-cryptos [cryptos]="cryptoMonedas"></app-tabla-cryptos>
+</ng-template>

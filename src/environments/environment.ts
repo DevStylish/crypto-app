@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  url: 'https://api.nomics.com/v1'
+  apiUrl: 'https://api.nomics.com/v1/currencies/ticker'
 };
 
 /*

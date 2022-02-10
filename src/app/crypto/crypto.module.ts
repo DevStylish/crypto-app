@@ -2,6 +2,8 @@ import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { FormsModule } from '@angular/forms';
 
+import { TableModule } from 'primeng/table';
+
 import { BusquedaLibreComponent } from './pages/busqueda-libre/busqueda-libre.component';
 import { BusquedaCryptomonedasComponent } from './pages/busqueda-cryptomonedas/busqueda-cryptomonedas.component';
 import { DetalleCryptoComponent } from './pages/detalle-crypto/detalle-crypto.component';
@@ -20,6 +22,7 @@ import { TablaCryptosComponent } from './components/tabla-cryptos/tabla-cryptos.
   imports: [
     CommonModule,
     FormsModule,
+    TableModule,
   ],
   exports: [
     BusquedaLibreComponent,

@@ -1,0 +1,22 @@
+<p-table [value]="cryptos" responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+        <tr>
+            <th>Logo</th>
+            <th>ID</th>
+            <th>Nombre</th>
+            <th>Precio</th>
+            <th>% 7d</th>
+            <th></th>
+        </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-crypto>
+        <tr>
+            <td><img [src]="crypto.logo_url" alt="logoCrypto"></td>
+            <td>{{ crypto.id }}</td>
+            <td>{{ crypto.name }}</td>
+            <td>{{ crypto.price }}</td>
+            <td>{{ crypto["7d"].price_change_pct }}</td>
+            <td><a href="">Ver mas...</a></td>
+        </tr>
+    </ng-template>
+</p-table>

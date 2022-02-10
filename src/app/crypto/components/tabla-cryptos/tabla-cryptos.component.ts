@@ -1,4 +1,5 @@
-import { Component, OnInit } from '@angular/core';
+import { Component, Input, OnInit } from '@angular/core';
+import { CryptoCoin } from '../../interfaces/cryptocoin.interface';
 
 @Component({
   selector: 'app-tabla-cryptos',
@@ -6,6 +7,8 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./tabla-cryptos.component.css']
 })
 export class TablaCryptosComponent implements OnInit {
+
+  @Input() cryptos: CryptoCoin[] = [];
 
   constructor() { }
 
