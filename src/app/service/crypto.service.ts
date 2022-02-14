@@ -10,12 +10,18 @@ import { Observable } from 'rxjs';
 })
 export class CryptoService {
 
-  private apiKey: string = "38d0b5c45ca82528c802116f70f81ed40e0630f3";
+  private apiKey: string = "a6d70796dd2837f0fedc3e6a57950c982e2a0a31";
 
   constructor(private http: HttpClient) { }
 
   buscarCrypto(cryptoText: string): Observable<CryptoCoin[]>{
     let url = `${environment.apiUrl}?key=${this.apiKey}&ids=${cryptoText}`;
+
+    return this.http.get<CryptoCoin[]>(url);
+  }
+
+  obtenerCryptoRanking(){
+    let url = `${environment.apiUrl}?key=${this.apiKey}&status=active&sort=rank&per-page=10&page=1`;
 
     return this.http.get<CryptoCoin[]>(url);
   }

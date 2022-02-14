@@ -1,5 +1,8 @@
 import { Component, OnInit } from '@angular/core';
 
+import { CryptoService } from '../../../service/crypto.service';
+import { CryptoCoin } from '../../interfaces/cryptocoin.interface';
+
 @Component({
   selector: 'app-busqueda-cryptomonedas',
   templateUrl: './busqueda-cryptomonedas.component.html',
@@ -7,9 +10,14 @@ import { Component, OnInit } from '@angular/core';
 })
 export class BusquedaCryptomonedasComponent implements OnInit {
 
-  constructor() { }
+  rankingCryptos!: CryptoCoin[];
+
+  constructor(private cryptoService: CryptoService) { }
 
   ngOnInit(): void {
+    this.cryptoService.obtenerCryptoRanking().subscribe((cryptos) => {
+      this.rankingCryptos = cryptos;
+    });
   }
 
 }

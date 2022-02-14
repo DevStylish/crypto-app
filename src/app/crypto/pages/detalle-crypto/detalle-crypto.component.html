@@ -1,1 +1,53 @@
-<p>detalle-crypto works!</p>
+<h2 *ngIf="idMoneda === ''; else showDetalles">No se ha introducido ninguna moneda</h2>
+
+<ng-template #showDetalles>
+    <div *ngIf="cryptoCoin !== undefined" class="container-fluid p-0">
+        <h2 [(ngModel)]="cryptoCoin" ngDefaultControl>Detalles: {{cryptoCoin.name}}</h2>
+        <div class="row">
+            <div class="col-3">
+                <p-card header="{{cryptoCoin.name}}" subheader="Precio actual: ${{cryptoCoin.price}}" [style]="{padding: '1rem'}" styleClass="p-card-shadow">
+                    <ng-template pTemplate="header">
+                        <img alt="Card" [src]="cryptoCoin.logo_url" style="width: 15rem; height: 15rem;">
+                    </ng-template>
+                    <p>Precio más alto: ${{cryptoCoin.high}}</p>
+                    <p>Fecha de precio más alto: <br>{{cryptoCoin.high_timestamp | date:'long'}}</p>
+                    <p>Volumen/Market Cap: {{cryptoCoin["1d"].volume}}</p>
+                    <p>Suministro Maximo: {{cryptoCoin.max_supply || "Actualmente no definido"}}</p>
+                    <p>Suministro desplegado: {{cryptoCoin.circulating_supply}}</p>
+                </p-card>
+            </div>
+            <div class="col-1"></div>
+            <div class="col-8">
+                <div class="container">
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>Información de hace 7 dias:</h4>
+                            <p>Volumen: {{cryptoCoin["7d"].volume}}</p>
+                            <p>% de cambio de volumen: {{cryptoCoin["7d"].volume_change_pct}}%</p>
+                            <p>% de precio: {{cryptoCoin["7d"].price_change_pct}}%</p>
+                            <p>% de market cap: {{cryptoCoin["7d"].market_cap_change_pct}}%</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>Información de hace 30 dias:</h4>
+                            <p>Volumen: {{cryptoCoin["30d"].volume}}</p>
+                            <p>% de cambio de volumen: {{cryptoCoin["30d"].volume_change_pct}}%</p>
+                            <p>% de precio: {{cryptoCoin["30d"].price_change_pct}}%</p>
+                            <p>% de market cap: {{cryptoCoin["30d"].market_cap_change_pct}}%</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-12">
+                            <h4>Información de hace 1 año:</h4>
+                            <p>Volumen: {{cryptoCoin["365d"].volume}}</p>
+                            <p>% de cambio de volumen: {{cryptoCoin["365d"].volume_change_pct}}%</p>
+                            <p>% de precio: {{cryptoCoin["365d"].price_change_pct}}%</p>
+                            <p>% de market cap: {{cryptoCoin["365d"].market_cap_change_pct}}%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</ng-template>

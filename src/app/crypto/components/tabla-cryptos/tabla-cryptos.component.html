@@ -10,13 +10,16 @@
         </tr>
     </ng-template>
     <ng-template pTemplate="body" let-crypto>
-        <tr>
+        <tr *ngIf="crypto.status === 'active'; else noDisplay">
             <td><img [src]="crypto.logo_url" alt="logoCrypto"></td>
             <td>{{ crypto.id }}</td>
             <td>{{ crypto.name }}</td>
-            <td>{{ crypto.price }}</td>
-            <td>{{ crypto["7d"].price_change_pct }}</td>
-            <td><a href="">Ver mas...</a></td>
+            <td>{{ crypto.price }}$</td>
+            <td>{{ crypto["7d"].price_change_pct }}%</td>
+            <td><a href="detalle/{{crypto.id}}">Ver mas...</a></td>
         </tr>
+        <ng-template #noDisplay>
+
+        </ng-template>
     </ng-template>
 </p-table>

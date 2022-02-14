@@ -14,16 +14,30 @@ export class BusquedaLibreComponent implements OnInit {
 
   constructor(private cryptoService: CryptoService) { }
 
-  ngOnInit(): void {}
+  ngOnInit(): void { }
 
-  buscarCrypto(){
-    this.cryptoService.buscarCrypto(this.cryptoName.toUpperCase()).subscribe((crypto) =>{
-      this.cryptoMonedas = crypto;
-      console.log(this.cryptoMonedas);
-    });
+  buscarCrypto() {
+    if (this.cryptoName.includes(" ")) {
+      let listaNameCryptos = this.cryptoName.split(" ");
+      let valuesCryptos = "";
+      for (let i = 0; i < listaNameCryptos.length; i++) {
+        if(i === listaNameCryptos.length-1){
+          valuesCryptos += listaNameCryptos[i];
+        }else{
+          valuesCryptos += listaNameCryptos[i] +",";
+        }
+      }
+      this.cryptoService.buscarCrypto(valuesCryptos.toUpperCase()).subscribe((crypto) => {
+        this.cryptoMonedas = crypto;
+      });
+    } else {
+      this.cryptoService.buscarCrypto(this.cryptoName.toUpperCase()).subscribe((crypto) => {
+        this.cryptoMonedas = crypto;
+      });
+    }
   }
 
-  mostrarCryptos(){
+  mostrarCryptos() {
 
   }
 }
