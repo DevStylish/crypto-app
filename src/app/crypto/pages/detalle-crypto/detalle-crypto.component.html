@@ -7,7 +7,7 @@
             <div class="col-3">
                 <p-card header="{{cryptoCoin.name}}" subheader="Precio actual: ${{cryptoCoin.price}}" [style]="{padding: '1rem'}" styleClass="p-card-shadow">
                     <ng-template pTemplate="header">
-                        <img alt="Card" [src]="cryptoCoin.logo_url" style="width: 15rem; height: 15rem;">
+                        <img alt="Card" [src]="cryptoCoin.logo_url" style="width: 50%; height: 50%;">
                     </ng-template>
                     <p>Precio más alto: ${{cryptoCoin.high}}</p>
                     <p>Fecha de precio más alto: <br>{{cryptoCoin.high_timestamp | date:'long'}}</p>
@@ -19,8 +19,8 @@
             <div class="col-1"></div>
             <div class="col-8">
                 <div class="container">
-                    <div class="row">
-                        <div class="col-12">
+                    <div class="row mb-2">
+                        <div class="col-12 border">
                             <h4>Información de hace 7 dias:</h4>
                             <p>Volumen: {{cryptoCoin["7d"].volume}}</p>
                             <p>% de cambio de volumen: {{cryptoCoin["7d"].volume_change_pct}}%</p>
@@ -28,8 +28,8 @@
                             <p>% de market cap: {{cryptoCoin["7d"].market_cap_change_pct}}%</p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
+                    <div class="row mb-2">
+                        <div class="col-12 border">
                             <h4>Información de hace 30 dias:</h4>
                             <p>Volumen: {{cryptoCoin["30d"].volume}}</p>
                             <p>% de cambio de volumen: {{cryptoCoin["30d"].volume_change_pct}}%</p>
@@ -37,8 +37,8 @@
                             <p>% de market cap: {{cryptoCoin["30d"].market_cap_change_pct}}%</p>
                         </div>
                     </div>
-                    <div class="row">
-                        <div class="col-12">
+                    <div class="row mb-2">
+                        <div class="col-12 border">
                             <h4>Información de hace 1 año:</h4>
                             <p>Volumen: {{cryptoCoin["365d"].volume}}</p>
                             <p>% de cambio de volumen: {{cryptoCoin["365d"].volume_change_pct}}%</p>
