@@ -3,8 +3,7 @@
 // The list of file replacements can be found in `angular.json`.
 
 export const environment = {
-  production: false,
-  apiUrl: 'https://cors-anywhere.herokuapp.com/https://api.nomics.com/v1/currencies/ticker'
+  production: false
 };
 
 /*
