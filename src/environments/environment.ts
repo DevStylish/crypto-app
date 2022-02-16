@@ -4,7 +4,7 @@
 
 export const environment = {
   production: false,
-  apiUrl: 'https://api.nomics.com/v1/currencies/ticker'
+  apiUrl: 'https://cors-anywhere.herokuapp.com/https://api.nomics.com/v1/currencies/ticker'
 };
 
 /*
